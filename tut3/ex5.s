@@ -1,11 +1,13 @@
 .global _start
 
 .section .data
-msg:	.ascii "Hello, world!\n"
+msg:	.ascii "yellow\n"
 	len = . - msg
-	
+
 .section .text
 _start:
+	movb $'H', msg
+	movb $'!', 5+msg(,1)
 	mov $4, %eax
 	mov $1, %ebx
 	mov $msg, %ecx
